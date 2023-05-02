@@ -17,24 +17,33 @@ function getComputerChoice (choice) {
         }else {
             alert ("Scissors");
         } 
-    
-    }
-
-
-getComputerChoice(); 
-
-function playRound (playerSelection, computerSelection ) {
-    if (playerSelection == "rock" && computerSelection == "Paper") {
-        alert ("You lose! Paper beats rock");
-    }else if (playerSelection == "paper" && computerSelection == "Rock") {
-        alert ("You win! Paper beats Rock");
-    }else if (playerSelection == "rock" && computerSelection == "Scissors") {
-        alert ("You win! Rock beats Scissors");
-    }
-    }
-    }
-
 }
 
-const computerSelection = getComputerchoice ;
+getComputerChoice();
+
+
+
+function playRound (playerSelection, getComputerChoice ) {
+    if (playerSelection == "rock" && getComputerChoice == "Paper") {
+        alert ("You lose! Paper beats rock");
+    }else if (playerSelection == "paper" && getComputerChoice == "Rock") {
+        alert ("You win! Paper beats Rock");
+    }else if (playerSelection == "rock" && getComputerChoice == "Scissors") {
+        alert ("You win! Rock beats Scissors");
+    }else if (playerSelection == "scissors" && getComputerChoice == "Rock") {
+        alert ("You lose! Rock beats Scissors");
+    }else if (playerSelection == "paper" && getComputerChoice == "Scissors") {
+        alert ("You lose! Scissors beats Paper");
+    }else if (playerSelection == "scissors" && getComputerChoice == "Paper") {
+        alert ("You win! Scissors beats Paper");
+    }else {
+        alert ("Try again! It's a tie") ;
+    }
+}
+    
+playRound();
+
+
+
+
 
