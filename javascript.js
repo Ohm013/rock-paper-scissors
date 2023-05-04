@@ -1,69 +1,63 @@
 
-
-
-function playerSelection (option) {
-    let input = prompt("Rock, Paper, or Scissors").toLowerCase();
-    if (input === "rock") {
-        option = "rock" ;
-    }else if (input === "paper"){
-        option = "paper" ;
-    }else if (input === "scissors") {
-        option = "scissors";
-    }else {
-        alert("Choose from Rock, Paper, or Scissors")
-    }
+const ask = prompt("Rock, Paper, or Scissors").toLowerCase();
     
 
-    alert(`You chose ${input}!`);
+function playerSelection () {
+    alert(`You chose ${ask}!`);
+    
     
 }
 
-playerSelection();
+playerSelection(); 
 
 
 
-function getComputerChoice (choice) {
-    choice = Math.floor(Math.random() *100);
+function getComputerChoice (option) {
+    let choice = Math.floor(Math.random() *100);
         if (choice <= 33) {
-            choice = "Rock";
+            return "Rock" ;
             alert("Rock");
         }else if (choice > 33 && choice <= 66) {
-            choice = "Paper"
+            return "Paper" ;
             alert ("Paper") ;
         }else {
-            choice = "Scissors"
+            return "Scissors" ;
             alert ("Scissors");
         } 
     
-}
+}        
 
-getComputerChoice();
+let computerSelection = getComputerChoice() ; 
 
 
 
-function playRound (playerSelection, getComputerChoice ) {
-    if (playerSelection === getComputerChoice ) {
+
+function playRound (playerSelection, computerSelection ) {
+    if (playerSelection === computerSelection) {
         alert ("Try again! It's a tie");
-    }else if  (playerSelection == "rock" && getComputerChoice == "Paper") {
+    }else if  (playerSelection === "rock" && computerSelection === "Paper" ) {
             alert ("You lose! Paper beats rock");
-    }else if (playerSelection == "paper" && getComputerChoice == "Rock") {
+    }else if (playerSelection === "paper" && computerSelection === "Rock") {
         alert ("You win! Paper beats Rock");
-    }else if (playerSelection == "rock" && getComputerChoice == "Scissors") {
+    }else if (playerSelection === "rock" && computerSelection === "Scissors") {
         alert ("You win! Rock beats Scissors");
-    }else if (playerSelection == "scissors" && getComputerChoice == "Rock") {
+    }else if (playerSelection === "scissors" && computerSelection === "Rock") {
         alert ("You lose! Rock beats Scissors");
-    }else if (playerSelection == "paper" && getComputerChoice == "Scissors") {
+    }else if (playerSelection === "paper" && computerSelection === "Scissors") {
         alert ("You lose! Scissors beats Paper");
-    }else if (playerSelection == "scissors" && getComputerChoice == "Paper") {
+    }else if (playerSelection === "scissors" && computerSelection === "Paper") {
         alert ("You win! Scissors beats Paper");
     }else{ 
-        playRound();
+        alert ("Done !"); 
     }
 
-    return ;
 }
-    
+
 playRound();
+
+
+
+
 
 
 
