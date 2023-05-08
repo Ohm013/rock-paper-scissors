@@ -48,30 +48,59 @@ function playRound (playerchoice, computerSelection ) {
 
 playRound();
 
-/*
+
 
 function game (playerScore, computerScore) {
 
     playerScore = 0 ;
     computerScore = 0 ;
     let fiveTimes = playRound() ; 
-        playRound();
-        playRound();
-        playRound();
-        playRound();
-        playRound();
+    playRound();
+         if (( playerSelection === "rock") && (computerSelection === "Paper" ) || (playerSelection === "scissors" && computerSelection === "Rock") || (playerSelection === "paper" && computerSelection === "Scissors")) { 
+            computerScore++;
+        }else if (((playerSelection === "paper" && computerSelection === "Rock")) ||  (playerSelection === "rock" && computerSelection === "Scissors") ||  (playerSelection === "scissors" && computerSelection === "Paper")){
+            playerScore++;
+        }else{
+            alert("Tie!") ;
+        }    
+    playRound();
+         if (( playerSelection === "rock") && (computerSelection === "Paper" ) || (playerSelection === "scissors" && computerSelection === "Rock") || (playerSelection === "paper" && computerSelection === "Scissors")) { 
+            computerScore++;
+        }else if (((playerSelection === "paper" && computerSelection === "Rock")) ||  (playerSelection === "rock" && computerSelection === "Scissors") ||  (playerSelection === "scissors" && computerSelection === "Paper")){
+            playerScore++;
+        }else{
+            alert("Tie!") ;
+        }    
+    playRound();
+         if (( playerSelection === "rock") && (computerSelection === "Paper" ) || (playerSelection === "scissors" && computerSelection === "Rock") || (playerSelection === "paper" && computerSelection === "Scissors")) { 
+            computerScore++;
+        }else if (((playerSelection === "paper" && computerSelection === "Rock")) ||  (playerSelection === "rock" && computerSelection === "Scissors") ||  (playerSelection === "scissors" && computerSelection === "Paper")){
+            playerScore++;
+        }else{
+            alert("Tie!") ;
+        }  
+    playRound();
+         if (( playerSelection === "rock") && (computerSelection === "Paper" ) || (playerSelection === "scissors" && computerSelection === "Rock") || (playerSelection === "paper" && computerSelection === "Scissors")) { 
+            computerScore++;
+        }else if (((playerSelection === "paper" && computerSelection === "Rock")) ||  (playerSelection === "rock" && computerSelection === "Scissors") ||  (playerSelection === "scissors" && computerSelection === "Paper")){
+            playerScore++;
+        }else{
+            alert("Tie!") ;
+        }  
+    playRound();
+         if (( playerSelection === "rock") && (computerSelection === "Paper" ) || (playerSelection === "scissors" && computerSelection === "Rock") || (playerSelection === "paper" && computerSelection === "Scissors")) { 
+            computerScore++;
+        }else if (((playerSelection === "paper" && computerSelection === "Rock")) ||  (playerSelection === "rock" && computerSelection === "Scissors") ||  (playerSelection === "scissors" && computerSelection === "Paper")){
+            playerScore++;
+        }else{
+            alert("Tie!") ;
+        }  
+    
 
-    if (( playerSelection === "rock") && (computerSelection === "Paper" ) || (playerSelection === "scissors" && computerSelection === "Rock") || (playerSelection === "paper" && computerSelection === "Scissors")) { 
-        computerScore++;
-    }else if (((playerSelection === "paper" && computerSelection === "Rock")) ||  (playerSelection === "rock" && computerSelection === "Scissors") ||  (playerSelection === "scissors" && computerSelection === "Paper")){
-        playerScore++;
-    }else{
-        alert("Tie!") ;
-
-    }
+    
     playerScore(); 
 
-    }
+}
 
 game() ;
 
@@ -81,7 +110,6 @@ game() ;
 
 
 
-*/ 
 
 
 
