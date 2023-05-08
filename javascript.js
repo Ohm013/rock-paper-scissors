@@ -1,42 +1,28 @@
-
-const ask = prompt("Rock, Paper, or Scissors").toLowerCase();
-    
-
-function playerSelection () {
-    alert(`You chose ${ask}!`);
-    
-    
-}
-
-playerSelection(); 
-
-
-
-function getComputerChoice (option) {
+function getComputerChoice () {
     let choice = Math.floor(Math.random() *100);
+
         if (choice <= 33) {
             return "Rock" ;
-            alert("Rock");
         }else if (choice > 33 && choice <= 66) {
             return "Paper" ;
-            alert ("Paper") ;
         }else {
             return "Scissors" ;
-            alert ("Scissors");
+           
         } 
     
-}        
-
-let computerSelection = getComputerChoice() ; 
-
-
+    
+}   
 
 
 function playRound (playerSelection, computerSelection ) {
-    if (playerSelection === computerSelection) {
-        alert ("Try again! It's a tie");
-    }else if  (playerSelection === "rock" && computerSelection === "Paper" ) {
-            alert ("You lose! Paper beats rock");
+    playerSelection = prompt("Rock, Paper, or Scissors").toLowerCase();
+    computerSelection = getComputerChoice()
+        alert(`Computer chose ${computerSelection}`);  
+
+
+    if ((playerSelection === "rock") && (computerSelection === "Paper" )) {
+        alert ("You lose! Paper beats rock");
+        
     }else if (playerSelection === "paper" && computerSelection === "Rock") {
         alert ("You win! Paper beats Rock");
     }else if (playerSelection === "rock" && computerSelection === "Scissors") {
@@ -48,12 +34,26 @@ function playRound (playerSelection, computerSelection ) {
     }else if (playerSelection === "scissors" && computerSelection === "Paper") {
         alert ("You win! Scissors beats Paper");
     }else{ 
-        alert ("Done !"); 
+        alert ("Try again! It's a tie");
     }
 
 }
 
-playRound();
+function game () {
+    let fiveTimes = playRound() ; 
+        playRound();
+        playRound();
+        playRound();
+        playRound();
+        playRound();
+
+
+}
+
+game() ;
+
+
+
 
 
 
