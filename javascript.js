@@ -13,24 +13,32 @@ function getComputerChoice () {
     
 }   
 
+function playerSelection () {
 
-function playRound (playerSelection, computerSelection ) {
-    playerSelection = prompt("Rock, Paper, or Scissors").toLowerCase();
-    computerSelection = getComputerChoice()
+    let option = prompt("Rock, Paper, or Scissors").toLowerCase() 
+    return option ;
+
+}
+
+
+
+function playRound (playerchoice, computerSelection ) {
+    playerchoice = playerSelection() ;
+    computerSelection = getComputerChoice();
         alert(`Computer chose ${computerSelection}`);  
 
 
-    if ((playerSelection === "rock") && (computerSelection === "Paper" )) {
+    if ((playerchoice === "rock") && (computerSelection === "Paper" )) {
         alert ("You lose! Paper beats rock"); 
-    }else if (playerSelection === "paper" && computerSelection === "Rock") {
+    }else if (playerchoice === "paper" && computerSelection === "Rock") {
         alert ("You win! Paper beats Rock");
-    }else if (playerSelection === "rock" && computerSelection === "Scissors") {
+    }else if (playerchoice === "rock" && computerSelection === "Scissors") {
         alert ("You win! Rock beats Scissors");
-    }else if (playerSelection === "scissors" && computerSelection === "Rock") {
+    }else if (playerchoice === "scissors" && computerSelection === "Rock") {
         alert ("You lose! Rock beats Scissors");
-    }else if (playerSelection === "paper" && computerSelection === "Scissors") {
+    }else if (playerchoice === "paper" && computerSelection === "Scissors") {
         alert ("You lose! Scissors beats Paper");
-    }else if (playerSelection === "scissors" && computerSelection === "Paper") {
+    }else if (playerchoice === "scissors" && computerSelection === "Paper") {
         alert ("You win! Scissors beats Paper");
     }else{ 
         alert ("Try again! It's a tie");
@@ -38,7 +46,9 @@ function playRound (playerSelection, computerSelection ) {
 
 }
 
+playRound();
 
+/*
 
 function game (playerScore, computerScore) {
 
@@ -71,7 +81,7 @@ game() ;
 
 
 
-
+*/ 
 
 
 
