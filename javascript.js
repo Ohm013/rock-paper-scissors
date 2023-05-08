@@ -21,8 +21,7 @@ function playRound (playerSelection, computerSelection ) {
 
 
     if ((playerSelection === "rock") && (computerSelection === "Paper" )) {
-        alert ("You lose! Paper beats rock");
-        
+        alert ("You lose! Paper beats rock"); 
     }else if (playerSelection === "paper" && computerSelection === "Rock") {
         alert ("You win! Paper beats Rock");
     }else if (playerSelection === "rock" && computerSelection === "Scissors") {
@@ -39,7 +38,12 @@ function playRound (playerSelection, computerSelection ) {
 
 }
 
-function game () {
+
+
+function game (playerScore, computerScore) {
+
+    playerScore = 0 ;
+    computerScore = 0 ;
     let fiveTimes = playRound() ; 
         playRound();
         playRound();
@@ -47,10 +51,22 @@ function game () {
         playRound();
         playRound();
 
+    if (( playerSelection === "rock") && (computerSelection === "Paper" ) || (playerSelection === "scissors" && computerSelection === "Rock") || (playerSelection === "paper" && computerSelection === "Scissors")) { 
+        computerScore++;
+    }else if (((playerSelection === "paper" && computerSelection === "Rock")) ||  (playerSelection === "rock" && computerSelection === "Scissors") ||  (playerSelection === "scissors" && computerSelection === "Paper")){
+        playerScore++;
+    }else{
+        alert("Tie!") ;
 
-}
+    }
+    playerScore(); 
+
+    }
 
 game() ;
+
+
+
 
 
 
