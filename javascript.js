@@ -20,6 +20,9 @@ function playerSelection () {
 
 }
 
+let playerScore = 0 ;
+let computerScore = 0 ;
+
 
 
 function playRound (playerchoice, computerSelection ) {
@@ -30,40 +33,68 @@ function playRound (playerchoice, computerSelection ) {
 
     if ((playerchoice === "rock") && (computerSelection === "Paper" )) {
         alert ("You lose! Paper beats rock"); 
+        ++computerScore;
+        
     }else if (playerchoice === "paper" && computerSelection === "Rock") {
         alert ("You win! Paper beats Rock");
+        ++playerScore;
     }else if (playerchoice === "rock" && computerSelection === "Scissors") {
         alert ("You win! Rock beats Scissors");
+        ++playerScore;
     }else if (playerchoice === "scissors" && computerSelection === "Rock") {
         alert ("You lose! Rock beats Scissors");
+        ++computerScore;
     }else if (playerchoice === "paper" && computerSelection === "Scissors") {
         alert ("You lose! Scissors beats Paper");
+        ++computerScore;
     }else if (playerchoice === "scissors" && computerSelection === "Paper") {
         alert ("You win! Scissors beats Paper");
+        ++playerScore;
     }else{ 
         alert ("Try again! It's a tie");
     }
 
 }
 
-playRound();
+function game () {
 
 
+  
 
-function game (playerScore, computerScore) {
-
-    playerScore = 0 ;
-    computerScore = 0 ;
-    let fiveTimes = playRound() ; 
-    playRound();
-         if (( playerSelection === "rock") && (computerSelection === "Paper" ) || (playerSelection === "scissors" && computerSelection === "Rock") || (playerSelection === "paper" && computerSelection === "Scissors")) { 
-            computerScore++;
-        }else if (((playerSelection === "paper" && computerSelection === "Rock")) ||  (playerSelection === "rock" && computerSelection === "Scissors") ||  (playerSelection === "scissors" && computerSelection === "Paper")){
-            playerScore++;
+    playRound() ;
+    
+       /* if (( playerSelection === "rock" && computerSelection === "Paper" ) || (playerSelection === "scissors" && computerSelection === "Rock") || (playerSelection === "paper" && computerSelection === "Scissors")) { 
+            return 
+        }else if ((playerSelection === "paper" && computerSelection === "Rock") ||  (playerSelection === "rock" && computerSelection === "Scissors") ||  (playerSelection === "scissors" && computerSelection === "Paper")){
+            return ++playerScore;
         }else{
-            alert("No point") ;
-        }    
-   /* playRound();
+            alert ("No point") ;
+    } */
+      
+  
+    
+
+
+    if (playerScore > computerScore) {
+        alert (`You win ${playerScore} to ${computerScore} !`)
+    }else if (computerScore > playerScore) {
+        alert ( `You lose ${computerScore} to ${playerScore}`)
+    }else{ 
+        alert (`The score is a tie. ${playerScore} - ${computerScore} ` )
+    }
+}
+
+    game() ;
+
+
+
+
+
+
+
+
+
+ /* playRound();
          if (( playerSelection === "rock") && (computerSelection === "Paper" ) || (playerSelection === "scissors" && computerSelection === "Rock") || (playerSelection === "paper" && computerSelection === "Scissors")) { 
             computerScore++;
         }else if (((playerSelection === "paper" && computerSelection === "Rock")) ||  (playerSelection === "rock" && computerSelection === "Scissors") ||  (playerSelection === "scissors" && computerSelection === "Paper")){
@@ -95,29 +126,6 @@ function game (playerScore, computerScore) {
         }else{
             alert("No point") ;
         }  */
-    
-
-
-    if (playerScore > computerScore) {
-        alert (`You win ${playerScore} to ${computerScore} !`)
-    }else if (computerScore > playerScore) {
-        alert ( `You lose ${computerScore} to ${playerScore}`)
-    }else{ 
-        alert ("It's a tie" )
-    }
-}
-
-game() ;
-
-
-
-
-
-
-
-
-
-
 
 
 
