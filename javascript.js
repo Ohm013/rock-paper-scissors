@@ -1,3 +1,11 @@
+const buttons = document.querySelectorAll("button"); 
+
+buttons.forEach((button) => {
+    button.addEventListener('click', playRound)
+});
+
+
+
 function getComputerChoice () {
     let choice = Math.floor(Math.random() *100);
 
@@ -13,20 +21,23 @@ function getComputerChoice () {
     
 }   
 
-function playerSelection () {
+// function playerSelection () {
 
-    let option = prompt("Rock, Paper, or Scissors").toLowerCase() 
-    return option ;
+  //  let option = prompt("Rock, Paper, or Scissors").toLowerCase() 
+  //  return option ;
 
-}
+//}
 
 let playerScore = 0 ;
 let computerScore = 0 ;
 
 
 
-function playRound (playerchoice, computerSelection ) {
-    playerchoice = playerSelection() ;
+function playRound (playerchoice, computerSelection) {
+   
+    playerchoice = button ;
+
+
     computerSelection = getComputerChoice();
         alert(`Computer chose ${computerSelection}`);  
 
@@ -61,34 +72,34 @@ function playRound (playerchoice, computerSelection ) {
 
 }
 
-function game () {
+// function game () {
 
-    playRound() ;
-        alert (`The score is  ${playerScore} - ${computerScore} `) ;
+   // playRound() ;
+     //   alert (`The score is  ${playerScore} - ${computerScore} `) ;
     
-    playRound() ;
-        alert (`The score is  ${playerScore} - ${computerScore} `) ;
+    //playRound() ;
+      //  alert (`The score is  ${playerScore} - ${computerScore} `) ;
     
-    playRound() ;
-        alert (`The score is  ${playerScore} - ${computerScore} `) ;
+    //playRound() ;
+      //  alert (`The score is  ${playerScore} - ${computerScore} `) ;
 
-    playRound() ;
-        alert (`The score is  ${playerScore} - ${computerScore} `) ;
+   // playRound() ;
+     //   alert (`The score is  ${playerScore} - ${computerScore} `) ;
 
-    playRound() ;
-        alert (`The score is  ${playerScore} - ${computerScore} `) ;
+    //playRound() ;
+   //     alert (`The score is  ${playerScore} - ${computerScore} `) ; 
     
 
 
-    if (playerScore > computerScore) {
-        alert (`You win ${playerScore} to ${computerScore} !`)
-    }else if (computerScore > playerScore) {
-        alert ( `You lose ${playerScore} to ${computerScore}`)
-    }else{ 
-        alert (`The score is a tie. ${playerScore} - ${computerScore} ` )
-    }
-}
+    //if (playerScore > computerScore) {
+   //     alert (`You win ${playerScore} to ${computerScore} !`)
+   // }else if (computerScore > playerScore) {
+     //   alert ( `You lose ${playerScore} to ${computerScore}`)
+    //}else{ 
+    //    alert (`The score is a tie. ${playerScore} - ${computerScore} ` )
+   // }
+//}
 
-    game() ;
+    //game() ;
 
 
