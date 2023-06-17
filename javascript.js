@@ -1,8 +1,15 @@
 const buttons = document.querySelectorAll("button"); 
 
+
 buttons.forEach((button) => {
-    button.addEventListener('click', playRound)
-});
+        button.addEventListener('click', function(){ 
+        playRound(button.value);  
+
+    });    
+}); 
+
+function playerSelection () {}
+
 
 
 
@@ -21,48 +28,44 @@ function getComputerChoice () {
     
 }   
 
-// function playerSelection () {
 
-  //  let option = prompt("Rock, Paper, or Scissors").toLowerCase() 
-  //  return option ;
-
-//}
 
 let playerScore = 0 ;
 let computerScore = 0 ;
 
 
 
-function playRound (playerchoice, computerSelection) {
+function playRound (playerChoice) {
+
+
+
+    playerChoice = playerSelection ; 
    
-    playerchoice = button ;
-
-
-    computerSelection = getComputerChoice();
+    let computerSelection = getComputerChoice();
         alert(`Computer chose ${computerSelection}`);  
 
 
-    if ((playerchoice === "rock") && (computerSelection === "Paper" )) {
+    if ((playerChoice === "Rock") && (computerSelection === "Paper" )) {
         alert ("You lose! Paper beats rock"); 
         ++computerScore;
         
-    }else if (playerchoice === "paper" && computerSelection === "Rock") {
+    }else if (playerChoice === "Paper" && computerSelection === "Rock") {
         alert ("You win! Paper beats Rock");
         ++playerScore;
 
-    }else if (playerchoice === "rock" && computerSelection === "Scissors") {
+    }else if (playerChoice === "Rock" && computerSelection === "Scissors") {
         alert ("You win! Rock beats Scissors");
         ++playerScore;
 
-    }else if (playerchoice === "scissors" && computerSelection === "Rock") {
+    }else if (playerChoice === "Scissors" && computerSelection === "Rock") {
         alert ("You lose! Rock beats Scissors");
         ++computerScore;
 
-    }else if (playerchoice === "paper" && computerSelection === "Scissors") {
+    }else if (playerChoice === "Paper" && computerSelection === "Scissors") {
         alert ("You lose! Scissors beats Paper");
         ++computerScore;
 
-    }else if (playerchoice === "scissors" && computerSelection === "Paper") {
+    }else if (playerChoice === "Scissors" && computerSelection === "Paper") {
         alert ("You win! Scissors beats Paper");
         ++playerScore;
 
