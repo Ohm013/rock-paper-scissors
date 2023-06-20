@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    background-color:rgb(205, 205, 240) ;
+   
+    
+}
+
+
+
+.choices {
+    display: flex ;
+    justify-content: space-evenly ;  
+}
+
+#button {
+    margin: 20px ; 
+}
