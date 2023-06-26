@@ -1,31 +1,33 @@
-const buttons = document.querySelectorAll('button'); 
-
-buttons.forEach(button => {
-    button.AddEventListener('click', function () { 
-        playRound(button.value); 
-
-    });    
-
-}); 
-
 let playerScore = 0 ;
 let computerScore = 0 ;
+const buttons = document.querySelectorAll('button'); 
+//const result = document.querySelector('result') ; 
+const words = document.querySelector('.words'); 
 
-function getComputerChoice () {
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      playRound(button.value);
+
+    });
+    
+});     
+  
+function getComputerChoice () { //Generates computers choice
     let choice = Math.floor(Math.random() *100);
 
-        if (choice <= 33) {
-            return "Rock" ;
-        }else if (choice > 33 && choice <= 66) {
-            return "Paper" ;
-        }else {
-            return "Scissors" ;
+      if (choice <= 33) {
+        return "Rock" ;
+      }else if (choice > 33 && choice <= 66) {
+        return "Paper" ;
+      }else {
+        return "Scissors" ;
     } 
 }   
 
-function playRound (playerSelection) {
+function playRound (playerSelection, computerSelection) { //One round of the game
+
    
-    let computerSelection = getComputerChoice();
+      computerSelection = getComputerChoice();
         alert(`Computer chose ${computerSelection}`);  
 
 
@@ -33,7 +35,7 @@ function playRound (playerSelection) {
        (playerSelection === "Scissors" && computerSelection === "Rock") ||
        (playerSelection === "Paper" && computerSelection === "Scissors")) {
 
-        alert (`You lose! ${computerSelection} beats ${playerSelection}`); 
+        words.textContent = `You lose! ${computerSelection} beats ${playerSelection}`; 
         ++computerScore;
         
     }
@@ -41,15 +43,21 @@ function playRound (playerSelection) {
             (playerSelection === "Rock" && computerSelection === "Scissors") ||
             (playerSelection === "Scissors" && computerSelection === "Paper")) {
        
-        alert (`You win! ${playerSelection} beats ${computerSelection}`);
+        words.textContent = `You win! ${playerSelection} beats ${computerSelection}` ; 
         ++playerScore;
 
     }
     else{
         alert ("Try again! It's a tie");
     }
-
+   
 }
+
+// ${computerSelection} beats ${playerSelection}`; 
+// ${playerSelection} beats ${computerSelection}`;
+
+
+
 
 //function game () {
 
@@ -80,5 +88,9 @@ function playRound (playerSelection) {
 //}
 
   //  game() ;
+
+ 
+
+
 
 
