@@ -2,7 +2,7 @@ let playerScore = 0 ;
 let computerScore = 0 ;
 const buttons = document.querySelectorAll('button'); 
 //const result = document.querySelector('result') ; 
-const words = document.querySelector('.words'); 
+const words = document.querySelector('h3'); 
 
 buttons.forEach(button => {
     button.addEventListener('click', () => {
@@ -48,7 +48,7 @@ function playRound (playerSelection, computerSelection) { //One round of the gam
 
     }
     else{
-        alert ("Try again! It's a tie");
+        words.textContent = "Try again! It's a tie";
     }
    
 }
