@@ -3,6 +3,7 @@ let computerScore = 0 ;
 const buttons = document.querySelectorAll('button'); 
 //const result = document.querySelector('result') ; 
 const words = document.querySelector('h3'); 
+const score = document.querySelector('h2');
 
 buttons.forEach(button => {
     button.addEventListener('click', () => {
@@ -11,17 +12,13 @@ buttons.forEach(button => {
     });
     
 });     
-  
-function getComputerChoice () { //Generates computers choice
-    let choice = Math.floor(Math.random() *100);
 
-      if (choice <= 33) {
-        return "Rock" ;
-      }else if (choice > 33 && choice <= 66) {
-        return "Paper" ;
-      }else {
-        return "Scissors" ;
-    } 
+const options = ["Rock", "Paper","Scissors"];
+
+function getComputerChoice () { //Generates computers choice
+    let choice = options[Math.floor(Math.random() * options.length)];
+    return choice ;
+
 }   
 
 function playRound (playerSelection, computerSelection) { //One round of the game
@@ -35,7 +32,8 @@ function playRound (playerSelection, computerSelection) { //One round of the gam
        (playerSelection === "Scissors" && computerSelection === "Rock") ||
        (playerSelection === "Paper" && computerSelection === "Scissors")) {
 
-        words.textContent = `You lose! ${computerSelection} beats ${playerSelection}`; 
+        words.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
+        score.textContent = `${playerScore} - ${computerScore}` ; 
         ++computerScore;
         
     }
@@ -44,6 +42,7 @@ function playRound (playerSelection, computerSelection) { //One round of the gam
             (playerSelection === "Scissors" && computerSelection === "Paper")) {
        
         words.textContent = `You win! ${playerSelection} beats ${computerSelection}` ; 
+        score.textContent = `${playerScore} - ${computerScore}` ;
         ++playerScore;
 
     }
@@ -51,32 +50,8 @@ function playRound (playerSelection, computerSelection) { //One round of the gam
         words.textContent = "Try again! It's a tie";
     }
    
-}
-
-// ${computerSelection} beats ${playerSelection}`; 
-// ${playerSelection} beats ${computerSelection}`;
-
-
-
-
-//function game () {
-
-  //  playRound() ;
-    //    alert (`The score is  ${playerScore} - ${computerScore} `) ;
-    
-    //playRound() ;
-      // alert (`The score is  ${playerScore} - ${computerScore} `) ;
-    
-    //playRound() ;
-      //  alert (`The score is  ${playerScore} - ${computerScore} `) ;
-
-    //playRound() ;
-      //  alert (`The score is  ${playerScore} - ${computerScore} `) ;
-
-    //playRound() ;
-      //  alert (`The score is  ${playerScore} - ${computerScore} `) ; 
-    
-
+} 
+   
 
     //if (playerScore > computerScore) {
       //  alert (`You win ${playerScore} to ${computerScore} !`)
@@ -86,11 +61,4 @@ function playRound (playerSelection, computerSelection) { //One round of the gam
       //  alert (`The score is a tie. ${playerScore} - ${computerScore} ` )
    //}
 //}
-
-  //  game() ;
-
- 
-
-
-
 
