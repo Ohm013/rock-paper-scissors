@@ -51,12 +51,13 @@ function playRound (playerSelection, computerSelection) { //One round of the gam
     score.textContent = `${playerScore} - ${computerScore}` ;
     
 } 
+
 restart.addEventListener('click', startOver);
 
 function startOver () {
-
-   score.textContent = "0 - 0 " ; 
-
+  score.textContent = "0 - 0 " ; 
+  playerScore = 0;
+  computerScore = 0; 
   return score ; 
 
 }
