@@ -52,9 +52,28 @@ function playRound (playerSelection, computerSelection) { //One round of the gam
     
 } 
 
-restart.addEventListener('click', startOver);
+function disableBtn (buttons) {
+  if ((playerScore <= 5) || (computerScore <= 5 )) {
+    buttons.disabled = "disabled" ;
+  }
+  
+
+}
+
+
+
+
 
 function startOver () {
+
+  if ((playerScore < 5) || (computerScore < 5)) {
+    restart.style.visibility = 'hidden';
+  }else {
+    restart.style.visibility = 'visible';
+  }
+
+  
+
   score.textContent = "0 - 0 " ; 
   playerScore = 0;
   computerScore = 0; 
@@ -62,8 +81,10 @@ function startOver () {
 
 }
 
+restart.addEventListener('click', startOver) ; 
 
-  
+
+
 
 //}
 
