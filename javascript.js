@@ -5,6 +5,10 @@ const buttons = document.querySelectorAll('div.choices button');
 const words = document.querySelector('h3'); 
 const score = document.querySelector('h2');
 const restart = document.querySelector('#restart'); 
+const para = document.querySelector('p'); 
+//var rock = "https://cdn2.iconfinder.com/data/icons/hand-gestures-2-1/128/Rock-Hand-Game-Right-Gesture-Win-512.png";
+//var paper = "https://cdn-icons-png.flaticon.com/512/470/470827.png" ;
+//var scissors = "https://cdn1.iconfinder.com/data/icons/paper-rock-scissors/100/2-512.png" ; 
 
 buttons.forEach(button => {
     button.addEventListener('click', () => {
@@ -25,55 +29,49 @@ function getComputerChoice () { //Generates computers choice
 score.textContent = "0 - 0" ; 
 
 function playRound (playerSelection, computerSelection) { //One round of the game
-
-   
-      computerSelection = getComputerChoice();
-        alert(`Computer chose ${computerSelection}`);  //Make function that pops up a picture of computerchoice
-
-
+ 
+  computerSelection = getComputerChoice();
+  para.textContent = (`Computer chose ${computerSelection}`);  //Make function that pops up a picture of computerchoice
+             
+        
     if ((playerSelection === "Rock" && computerSelection === "Paper" ) ||
        (playerSelection === "Scissors" && computerSelection === "Rock") ||
        (playerSelection === "Paper" && computerSelection === "Scissors")) {
-
-        words.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
         ++computerScore;
-        
+        if (computerScore === 5) {
+          words.textContent = "Game Over :( Press Play Again for rematch";
+          disableBtn();
+        }else { 
+          words.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
+      }     
     }else if ((playerSelection === "Paper" && computerSelection === "Rock") ||
-            (playerSelection === "Rock" && computerSelection === "Scissors") ||
-            (playerSelection === "Scissors" && computerSelection === "Paper")) {
-       
-        words.textContent = `You win! ${playerSelection} beats ${computerSelection}` ; 
-        ++playerScore;
-
+          (playerSelection === "Rock" && computerSelection === "Scissors") ||
+          (playerSelection === "Scissors" && computerSelection === "Paper")) {
+            ++playerScore;     
+            if (playerScore === 5) {
+              words.textContent = "YOU WIN!!";
+              disableBtn() ;
+            }else {
+              words.textContent = `You win! ${playerSelection} beats ${computerSelection}` ; 
+        }      
     }else{
       words.textContent = "Try again! It's a tie";
     }
     score.textContent = `${playerScore} - ${computerScore}` ;
-    
-} 
-
-function disableBtn (buttons) {
-  if ((playerScore <= 5) || (computerScore <= 5 )) {
-    buttons.disabled = "disabled" ;
-  }
+}    
   
-
-}
-
+restart.addEventListener('click', startOver) ; 
 
 
-
-
-function startOver () {
-
+function reAppear () {
   if ((playerScore < 5) || (computerScore < 5)) {
     restart.style.visibility = 'hidden';
   }else {
     restart.style.visibility = 'visible';
   }
 
-  
-
+}
+function startOver () {
   score.textContent = "0 - 0 " ; 
   playerScore = 0;
   computerScore = 0; 
@@ -81,23 +79,13 @@ function startOver () {
 
 }
 
-restart.addEventListener('click', startOver) ; 
+function disableBtn () {
+  return playerScore ; 
+  return computerScore ;
+ if ((playerScore === 5) || (computerScore === 5 )) {
+  buttons.disbaled = true ;
+ }else {
+  buttons.disbaled = false ;
+}}
 
 
-
-
-//}
-
-
-// make a function to where game stops when one either side scores 5 
-
-
-
-  //if ((playerScore = 5) {
-   // words.textContent = "YOU WON! First to 5 points !"
-    
-    
-    
-   //}else if  (computerScore = 5)){
-     // words.textContent = "You lose :( Click the button below to try again"
-   //}
