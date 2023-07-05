@@ -1,6 +1,6 @@
 body {
+    justify-content: center ;
     background-color:rgb(140, 159, 232);
-
 
 }
 
@@ -33,7 +33,33 @@ h3 {
 .score {
     display: flex ;
     justify-content: center ;
-    border : solid; 
-    padding : 10px ;
+    border : solid;
     width : 300px ; 
+    font-size: xx-large;
 } 
+
+.playerScore {
+    display: flex ;
+    justify-content: center ;
+    border:solid ; 
+    padding: 20px  ; 
+    width: 110px;
+}
+
+.computerScore {
+    display: flex ;
+    justify-content: center ;
+    border:solid ; 
+    padding: 20px ; 
+    width: 110px;
+
+}
+
+.identification {
+    display: flex ;
+    margin: 15px ;
+}
+
+.comp {
+    margin-left: 30px ;
+}
