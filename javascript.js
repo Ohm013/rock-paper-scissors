@@ -8,20 +8,19 @@ const restart = document.querySelector('#restart');
 const para = document.querySelector('.compChoice'); 
 
 buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      playRound(button.value);
-      if ((playerScore >= 5) || (computerScore >=5)) {
-        return ;
-}});
-    
-});     
+    button.addEventListener('click', getPlayerChoice)
+}); 
+
+function getPlayerChoice(e) {
+  let playerSelection = e.target.id ;
+  playRound(playerSelection, getComputerChoice()); 
+}
 
 const options = ["Rock", "Paper","Scissors"];
 
 function getComputerChoice () { //Generates computers choice
     let choice = options[Math.floor(Math.random() * options.length)];
     return choice ;
-
 }
 
 pScore.textContent = "0" ;
@@ -37,8 +36,9 @@ function playRound (playerSelection, computerSelection) { //One round of the gam
        (playerSelection === "Scissors" && computerSelection === "Rock") ||
        (playerSelection === "Paper" && computerSelection === "Scissors")) {
         ++computerScore;
-        if (computerScore === 5) {
+        if ((computerScore === 5) && (playerScore < 5)) {
           words.textContent = "Game Over :( Press Play Again for rematch"; 
+          gameOver(); 
         }else { 
           words.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
       }     
@@ -46,8 +46,9 @@ function playRound (playerSelection, computerSelection) { //One round of the gam
           (playerSelection === "Rock" && computerSelection === "Scissors") ||
           (playerSelection === "Scissors" && computerSelection === "Paper")) {
             ++playerScore;   
-            if (playerScore === 5) {
+            if ((playerScore === 5) && (computerScore < 5)) {
               words.textContent = "YOU WIN!!";
+              gameOver();
             }else {
               words.textContent = `You win! ${playerSelection} beats ${computerSelection}` ; 
         }      
@@ -58,7 +59,6 @@ function playRound (playerSelection, computerSelection) { //One round of the gam
    cScore.textContent = `${computerScore}`;
   }
 
-
 restart.addEventListener('click', startOver) ; 
 
 function startOver () {
@@ -66,10 +66,9 @@ function startOver () {
   cScore.textContent = "0" ;
   playerScore = 0;
   computerScore = 0; 
-  return score ; 
-
 }
-
-
-
-
+function gameOver () {
+  buttons.forEach(button => { //make sure to include the for each or it wouldnt work
+    button.removeEventListener('click', getPlayerChoice) //"button" worked but not "buttonS"
+  });
+  }; 
