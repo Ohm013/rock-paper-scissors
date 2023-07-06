@@ -8,11 +8,13 @@ const restart = document.querySelector('#restart');
 const para = document.querySelector('.compChoice'); 
 
 buttons.forEach(button => {
-    button.addEventListener('click', getPlayerChoice)
-}); 
+    button.addEventListener('click', getPlayerChoice) 
+});
+ 
 
 function getPlayerChoice(e) {
-  let playerSelection = e.target.id ;
+  let playerSelection = e.target.id ; 
+  console.log(playerSelection)
   playRound(playerSelection, getComputerChoice()); 
 }
 
@@ -37,8 +39,8 @@ function playRound (playerSelection, computerSelection) { //One round of the gam
        (playerSelection === "Paper" && computerSelection === "Scissors")) {
         ++computerScore;
         if ((computerScore === 5) && (playerScore < 5)) {
+          gameOver(); //put this here  because it has to check score every round to work, if outside function then it'd only check for one round
           words.textContent = "Game Over :( Press Play Again for rematch"; 
-          gameOver(); 
         }else { 
           words.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
       }     
@@ -47,8 +49,8 @@ function playRound (playerSelection, computerSelection) { //One round of the gam
           (playerSelection === "Scissors" && computerSelection === "Paper")) {
             ++playerScore;   
             if ((playerScore === 5) && (computerScore < 5)) {
-              words.textContent = "YOU WIN!!";
               gameOver();
+              words.textContent = "YOU WIN!!";
             }else {
               words.textContent = `You win! ${playerSelection} beats ${computerSelection}` ; 
         }      
@@ -69,6 +71,6 @@ function startOver () {
 }
 function gameOver () {
   buttons.forEach(button => { //make sure to include the for each or it wouldnt work
-    button.removeEventListener('click', getPlayerChoice) //"button" worked but not "buttonS"
-  });
+    button.removeEventListener('click', getPlayerChoice) //"button" worked but not "buttonS" 
+  })
   }; 
