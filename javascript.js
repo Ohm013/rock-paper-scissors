@@ -7,15 +7,15 @@ const cScore = document.querySelector('.computerScore');
 const restart = document.querySelector('#restart'); 
 const para = document.querySelector('.compChoice'); 
 
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-    getPlayerChoice(button.value);
+function eventListener() {
+  buttons.forEach(button => {
+    button.addEventListener('click', getPlayerChoice) ;
+})};
 
-    });
-});
- 
+eventListener() ;
+
 function getPlayerChoice(e) {
-  let playerSelection = e
+  let playerSelection = e.currentTarget.id ;
   console.log(playerSelection)
   playRound(playerSelection, getComputerChoice); 
 }
@@ -27,7 +27,7 @@ function getComputerChoice () { //Generates computers choice
     return choice ;
 }
 
-pScore.textContent = "0" ;
+pScore.textContent = "0" ; // ${playerScore}
 cScore.textContent = "0";  
 
 function playRound (playerSelection, computerSelection) { //One round of the game
@@ -66,13 +66,16 @@ function playRound (playerSelection, computerSelection) { //One round of the gam
 restart.addEventListener('click', startOver) ; 
 
 function startOver () {
-  pScore.textContent = "0" ; 
-  cScore.textContent = "0" ;
   playerScore = 0;
   computerScore = 0; 
+  pScore.textContent = `${playerScore}` ; 
+  cScore.textContent = `${computerScore}` ;
+  eventListener() ; 
+
 }
 function gameOver () {
-  buttons.forEach(button => { //make sure to include the for each or it wouldnt work
+    buttons.forEach(button => { //make sure to include the for each or it wouldnt work
     button.removeEventListener('click', getPlayerChoice) //"button" worked but not "buttonS" 
   })
-  }; 
+    }  
+
