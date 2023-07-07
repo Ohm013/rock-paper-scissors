@@ -8,14 +8,16 @@ const restart = document.querySelector('#restart');
 const para = document.querySelector('.compChoice'); 
 
 buttons.forEach(button => {
-    button.addEventListener('click', getPlayerChoice) 
+    button.addEventListener('click', () => {
+    getPlayerChoice(button.value);
+
+    });
 });
  
-
 function getPlayerChoice(e) {
-  let playerSelection = e.target.id ; 
+  let playerSelection = e
   console.log(playerSelection)
-  playRound(playerSelection, getComputerChoice()); 
+  playRound(playerSelection, getComputerChoice); 
 }
 
 const options = ["Rock", "Paper","Scissors"];
