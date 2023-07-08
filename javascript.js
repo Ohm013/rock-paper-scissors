@@ -5,7 +5,7 @@ const words = document.querySelector('h3');
 const pScore = document.querySelector('.playerScore');
 const cScore = document.querySelector('.computerScore');
 const restart = document.querySelector('#restart'); 
-const para = document.querySelector('.compChoice'); 
+//const para = document.querySelector('.compChoice'); 
 
 function eventListener() {
   buttons.forEach(button => {
@@ -33,7 +33,7 @@ cScore.textContent = "0";
 function playRound (playerSelection, computerSelection) { //One round of the game
  
   computerSelection = getComputerChoice();
-  para.textContent = (`Computer chose ${computerSelection}`);  //Make function that pops up a picture of computerchoice
+  //para.textContent = (`Computer chose ${computerSelection}`);  //Make function that pops up a picture of computerchoice
              
         
     if ((playerSelection === "Rock" && computerSelection === "Paper" ) ||
@@ -42,9 +42,9 @@ function playRound (playerSelection, computerSelection) { //One round of the gam
         ++computerScore;
         if ((computerScore === 5) && (playerScore < 5)) {
           gameOver(); //put this here  because it has to check score every round to work, if outside function then it'd only check for one round
-          words.textContent = "Game Over :( Press Play Again for rematch"; 
+          words.textContent = "Result: Game Over :( Press Play Again for rematch"; 
         }else { 
-          words.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
+          words.textContent = `Result: You lose! ${computerSelection} beats ${playerSelection}`;
       }     
     }else if ((playerSelection === "Paper" && computerSelection === "Rock") ||
           (playerSelection === "Rock" && computerSelection === "Scissors") ||
@@ -52,12 +52,12 @@ function playRound (playerSelection, computerSelection) { //One round of the gam
             ++playerScore;   
             if ((playerScore === 5) && (computerScore < 5)) {
               gameOver();
-              words.textContent = "YOU WIN!!";
+              words.textContent = "Result: YOU WIN!!";
             }else {
-              words.textContent = `You win! ${playerSelection} beats ${computerSelection}` ; 
+              words.textContent = `Result: You win! ${playerSelection} beats ${computerSelection}` ; 
         }      
     }else{
-      words.textContent = "Try again! It's a tie";
+      words.textContent = "Result: Try again! It's a tie";
     }
    pScore.textContent = `${playerScore}` ;
    cScore.textContent = `${computerScore}`;
@@ -70,6 +70,7 @@ function startOver () {
   computerScore = 0; 
   pScore.textContent = `${playerScore}` ; 
   cScore.textContent = `${computerScore}` ;
+  words.textContent= 'Result:'; 
   eventListener() ; 
 
 }
