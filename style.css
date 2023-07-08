@@ -1,8 +1,6 @@
 body {
     background-color:rgb(124, 104, 171);
     font-style: oblique;
-    color: beige ;
-   
 }
 
 .subheading {
@@ -37,12 +35,14 @@ img {
 h3 {
     display: flex;
     justify-content: center ;
-    color:rgb(0, 2, 4) ; 
+    color: lavenderblush;
+    font-size: 30px ;
 }
 
 .scoreContainer {
     display: flex ;
     justify-content: center ;
+    color: beige ;
 }
 
 .score {
@@ -73,6 +73,7 @@ h3 {
     display: flex ;
     justify-content: center ;
     margin: 15px ;
+    color: beige ;
 }
 
 .comp {
@@ -83,6 +84,7 @@ h3 {
     display: flex ;
     justify-content: center ;
     margin-top: 60px ; 
+  
 }
 
 #restart {
